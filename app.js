@@ -40,6 +40,11 @@ app.post( '/create',      routes.create );
 app.get(  '/destroy/:id', routes.destroy );
 app.get(  '/edit/:id',    routes.edit );
 app.post( '/update/:id',  routes.update );
+app.get(  '/welcome',     routes.welcome );
+app.get(  '/register',    routes.register);
+app.get(  '/login',       routes.login);
+app.get(  '/dash',        routes.dash);
+app.get(  '/store/:id',   routes.store);
 
 app.use( static( path.join( __dirname, 'public' )));
 

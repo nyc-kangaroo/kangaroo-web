@@ -1,7 +1,7 @@
 var utils    = require( '../utils' );
 var mongoose = require( 'mongoose' );
 var Todo     = mongoose.model( 'Todo' );
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DASHBOARD SYSTEM
 exports.index = function ( req, res, next ){
   var user_id = req.cookies ?
     req.cookies.user_id : undefined;
@@ -96,3 +96,80 @@ exports.current_user = function ( req, res, next ){
 
   next();
 };
+
+exports.welcome = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Todo.
+    find({ user_id : user_id }).
+    sort( '-updated_at' ).
+    exec( function ( err, todos ){
+      if( err ) return next( err );
+
+      res.render( 'welcome', {
+          title : 'Kangaroo | Welcome',
+          todos : todos
+      });
+    });
+};
+
+exports.register = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Todo.
+    find({ user_id : user_id }).
+    sort( '-updated_at' ).
+    exec( function ( err, todos ){
+      if( err ) return next( err );
+
+      res.render( 'register', {
+          title : 'Kangaroo | Register',
+          todos : todos
+      });
+    });
+};
+
+exports.login = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Todo.
+    find({ user_id : user_id }).
+    sort( '-updated_at' ).
+    exec( function ( err, todos ){
+      if( err ) return next( err );
+
+      res.render( 'login', {
+          title : 'Kangaroo | Login',
+          todos : todos
+      });
+    });
+};
+
+exports.dash = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Todo.
+    find({ user_id : user_id }).
+    sort( '-updated_at' ).
+    exec( function ( err, todos ){
+      if( err ) return next( err );
+
+      res.render( 'dash', {
+          title : 'Kangaroo | Dashboard',
+          todos : todos
+      });
+    });
+};
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~API SYSTEM
+exports.store = function ( req, res, next ) {
+  var test = '{      "name":"Whole Foods",      "imageURL":"http://localhost:3001/images/whole_foods.jpg",      "products":[          {"UPC":"1234567890", "name":"Number", "imageURL":"http://localhost:3001/images/whole_foods.jpg", "Price":"4.5"}]  }';
+
+
+
+  res.type('application/json');
+  res.send(test);
+}
