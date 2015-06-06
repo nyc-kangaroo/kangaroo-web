@@ -166,7 +166,7 @@ exports.dash = function ( req, res, next ){
 };
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~API SYSTEM
 exports.store = function ( req, res, next ) {
-  var test = '{      "name":"Whole Foods",      "imageURL":"http://localhost:3001/images/whole_foods.jpg",      "products":[          {"UPC":"1234567890", "name":"Number", "imageURL":"http://localhost:3001/images/whole_foods.jpg", "Price":"4.5"}]  }';
+  var test = '{      "name":"Whole Foods",      "imageUrl":"http://45.33.83.229:3001/images/whole_foods.jpg",      "products":[          {"UPC":"1234567890", "name":"Number", "imageUrl":"http://45.33.83.229:3001/images/whole_foods.jpg", "price":"4.5"}]  }';
 
 
 
