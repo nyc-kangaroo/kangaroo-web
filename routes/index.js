@@ -24,9 +24,41 @@ var peas_and_pickles = {
       name: "Poland Spring Water 3 Ltr",
       imageUrl: "http://ecx.images-amazon.com/images/I/61cUAiC1AzL._SX522AA522_PIbundle-6,TopRight,0,0_AA522_SH20_.jpg",
       price: 2.78
+    },
+    {
+      UPC: "0070272232027",
+      name: "Reddi Whip Original Whipped Topping",
+      imageUrl: "http://ecx.images-amazon.com/images/I/31JGk-d7w6L.AA220_PIbundle-12,TopRight,0,0_AA220_SH20_.jpg",
+      price: 3.42
+    },
+    {
+      UPC: "0064144150502",
+      name: "Jiffy Pop Butter Popcorn",
+      imageUrl: "http://ecx.images-amazon.com/images/I/81OwBIw4MWL._SX522_.jpg",
+      price: 1.99
+    },
+    {
+      UPC: "0051000012517",
+      name: "Campbell's Chicken Noodle Soup",
+      imageUrl: "http://ecx.images-amazon.com/images/I/71sO18hCwJL._SX522_.jpg",
+      price: 1.99
+    },
+    {
+      UPC: "0009800895007",
+      name: "Nutella Hazelnut Spread, 13 Oz",
+      imageUrl: "http://ecx.images-amazon.com/images/I/51%2B3ucW3AQL.jpg",
+      price: 4.99
+    },
+    {
+      UPC: "0070847811169",
+      name: "Monster Energy Drink, 16 Oz",
+      imageUrl: "http://ecx.images-amazon.com/images/I/4166mvE287L.jpg",
+      price: 3.99
     }
   ],
   promoted : [
+    "0009800895007",
+    "0051000012517",
     "0038000635304",
     "0075720334117"
   ]
