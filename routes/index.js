@@ -6,23 +6,26 @@ var Todo     = mongoose.model( 'Todo' );
 var peas_and_pickles = {
   name : "Peas & Pickles",
   imageUrl : "http://45.33.83.229:3001/images/whole_foods.jpg",
-  products : {
-    "0111152643059": {
+  products : [
+    {
+      UPC: "0111152643059",
       name: "Daifuku – Red Bean Cake",
       imageUrl: "http://foods.dailyburn.com.s3.amazonaws.com/pictures/130550/large_thumb.jpg",
       price: 2.49
     },
-    "0038000635304": {
+    {
+      UPC: "0038000635304",
       name: "Kellogg's Froot Loops",
       imageUrl: "http://ecx.images-amazon.com/images/I/81trhM3cYYL._SX522SX522_SY500_CR,0,0,522,500_PIbundle-60,TopRight,0,0_SX522_SY500_CR,0,0,522,500_SH20_.jpg",
       price: 0.99
     },
-    "0075720334117": {
+    {
+      UPC: "0075720334117",
       name: "Poland Spring Water 3 Ltr",
       imageUrl: "http://ecx.images-amazon.com/images/I/61cUAiC1AzL._SX522AA522_PIbundle-6,TopRight,0,0_AA522_SH20_.jpg",
       price: 2.78
     }
-  },
+  ],
   promoted : [
     0038000635304,
     0075720334117
@@ -31,14 +34,14 @@ var peas_and_pickles = {
 var foragers_market = {
   name : "Foragers Market",
   imageUrl : "http://45.33.83.229:3001/images/whole_foods.jpg",
-  products : {
+  products : [
     {
       UPC: "1234567890",
       name: "Number",
       imageUrl: "http://45.33.83.229:3001/images/whole_foods.jpg",
       price: 4.5
     }
-  },
+  ],
   promoted : [
     1234567890
   ]
