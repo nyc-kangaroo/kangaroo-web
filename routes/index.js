@@ -27,8 +27,8 @@ var peas_and_pickles = {
     }
   ],
   promoted : [
-    0038000635304,
-    0075720334117
+    "0038000635304",
+    "0075720334117"
   ]
 };
 var foragers_market = {
