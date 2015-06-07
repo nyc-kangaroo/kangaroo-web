@@ -73,7 +73,7 @@ exports.create = function ( req, res, next ){
   }).save( function ( err, todo, count ){
     if( err ) return next( err );
 
-    res.redirect( '/' );
+    res.redirect( '/index' );
   });
 };
 
@@ -89,7 +89,7 @@ exports.destroy = function ( req, res, next ){
     todo.remove( function ( err, todo ){
       if( err ) return next( err );
 
-      res.redirect( '/' );
+      res.redirect( '/index' );
     });
   });
 };
@@ -126,7 +126,7 @@ exports.update = function( req, res, next ){
     todo.save( function ( err, todo, count ){
       if( err ) return next( err );
 
-      res.redirect( '/' );
+      res.redirect( '/index' );
     });
   });
 };
@@ -222,4 +222,17 @@ exports.checkout = function ( req, res, next ) {
   res.type('text/plain');
   console.log(req.body);
   res.send(req.body);
+
+  /*
+
+    console.log(req.body.content);
+  new Todo({
+      user_id    : req.cookies.user_id,
+      content    : req.body.content,
+      updated_at : Date.now()
+  }).save( function ( err, todo, count ){
+    if( err ) return next( err );
+
+    res.redirect( '/' );
+  });*/
 };

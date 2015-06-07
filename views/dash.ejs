@@ -13,7 +13,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script type="text/javascript">
-	    google.load('visualization', '1.1', {packages: ['line', "geochart"]});
+	    google.load('visualization', '1.1', {packages: ['line', "geochart", "table"]});
 	    google.setOnLoadCallback(drawChart);
 
 	    function drawChart() {
@@ -134,6 +134,33 @@
 	        chartz.draw(dataz, optionsz);
 	      }
 	    </script>
+
+       <script type="text/javascript">
+      // google.load("visualization", "1", {packages:["table"]});
+      google.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Location');
+        data.addColumn('number', 'Quantity');
+        data.addColumn('number', 'Time Ago');
+        data.addRows([
+          ['Peas & Pickles', 2, {v: 3,  f: '3 minutes ago'}],
+          ['Peas & Pickles', 1, {v: 1, f: '10 minutes ago'}],
+          ['Peas & Pickles', 25, {v: 1, f: '13 minutes ago'}],
+          ['Peas & Pickles', 3, {v: 2, f: '21 minutes ago'}]
+        ]);
+
+        var optionzz = {
+        	showRowNumber: false,
+        	width: 900
+        }
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, optionzz);
+      }
+    </script>
 	</head>
 
 	<body>
@@ -150,7 +177,8 @@
 			<div id="left">
 				<div class="subtitle">SALES OVER TIME</div>
 				<div id="line_top_x"></div>
-				<div class="subtitle">RECENT SALES</div>
+				<div class="subtitle">LATEST SALES MADE</div>
+				<div id="table_div"></div>
 			</div>
 			<div id="right">
 				<div class="subtitle">RELATED NEWS</div>
@@ -159,9 +187,6 @@
 				<div class="subtitle">SALES OVER REGION</div>
 				<div id="regions_div" style="width: 900px; height: 500px;"></div>
 			</div>
-			<!--
-			
-			<div class="subtitles2">SALES OVER REGION</div> -->
 		</div>
 	</body>
 </html>
