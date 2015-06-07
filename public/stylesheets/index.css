@@ -1,5 +1,5 @@
 @font-face {
-	font-family: shabby;
+	font-family: museo;
 	src: url(./Museo300-Regular.otf);
 }
 
@@ -22,7 +22,7 @@ html body{
 h6 {
 	margin-top: 1em;
 	font-size: 250px;
-	font-family: shabby;
+	font-family: museo;
 	text-align: center;
 	color: #FFFFFF;
 	
@@ -39,7 +39,7 @@ h2 {
 		top: 200px; 
 		left: 0; 
 		width: 50%;
-		font-family: shabby;
+		font-family: museo;
 		color: #FFFFFF;
 		text-shadow: 2px 2px #000000;
 		font-weight:100;
