@@ -222,10 +222,6 @@ exports.checkout = function ( req, res, next ) {
   // res.type('text/plain');
   // console.log(req.body);
   // res.send(req.body);
-
-  
-
-  console.log(req.body.content);
   new Todo({
       user_id    : req.params.store,
       content    : req.params.amt,
