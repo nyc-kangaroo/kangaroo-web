@@ -1,7 +1,33 @@
+// GLOBALS
 var utils    = require( '../utils' );
 var mongoose = require( 'mongoose' );
 var Todo     = mongoose.model( 'Todo' );
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DASHBOARD SYSTEM
+// SUPERMARKETS
+var peas_and_pickles = {
+  name : "Peas & Pickles",
+  imageUrl : "http://45.33.83.229:3001/images/whole_foods.jpg",
+  products : [
+    {
+      UPC: "1234567890",
+      name: "Number",
+      imageUrl: "http://45.33.83.229:3001/images/whole_foods.jpg",
+      price: "4.5"
+    }
+  ]
+};
+var foragers_market = {
+  name : "Foragers Market",
+  imageUrl : "http://45.33.83.229:3001/images/whole_foods.jpg",
+  products : [
+    {
+      UPC: "1234567890",
+      name: "Number",
+      imageUrl: "http://45.33.83.229:3001/images/whole_foods.jpg",
+      price: "4.5"
+    }
+  ]
+}
+// DASHBOARD SYSTEM
 exports.index = function ( req, res, next ){
   var user_id = req.cookies ?
     req.cookies.user_id : undefined;
@@ -164,12 +190,28 @@ exports.dash = function ( req, res, next ){
       });
     });
 };
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~API SYSTEM
+// API SYSTEM
 exports.store = function ( req, res, next ) {
-  var test = '{      "name":"Whole Foods",      "imageUrl":"http://45.33.83.229:3001/images/whole_foods.jpg",      "products":[          {"UPC":"1234567890", "name":"Number", "imageUrl":"http://45.33.83.229:3001/images/whole_foods.jpg", "price":"4.5"}]  }';
-
-
-
   res.type('application/json');
-  res.send(test);
-}
+  if (req.params.id == "ChIJZaiaZzFawokReXz6BSpjDCs") // Peas & Pickles
+    res.json(peas_and_pickles);
+  else if (req.params.id == "ChIJl5_N4DNawokRZPThIb1Aqy8") // Foragers Market
+    res.json(foragers_market);
+  else
+    res.send("place_id not found");
+};
+
+exports.checkout = function ( req, res, next ) {
+  res.type('application/json');
+  // req.body.content;
+
+  new Todo({
+      user_id    : req.cookies.user_id,
+      content    : req.body.content,
+      updated_at : Date.now()
+  }).save( function ( err, todo, count ){
+    if( err ) return next( err );
+
+    res.redirect( '/' );
+  });
+};
