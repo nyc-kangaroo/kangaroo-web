@@ -134,33 +134,6 @@
 	        chartz.draw(dataz, optionsz);
 	      }
 	    </script>
-
-       <script type="text/javascript">
-      // google.load("visualization", "1", {packages:["table"]});
-      google.setOnLoadCallback(drawTable);
-
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Location');
-        data.addColumn('number', 'Quantity');
-        data.addColumn('number', 'Time Ago');
-        data.addRows([
-          ['Peas & Pickles', 2, {v: 3,  f: '3 minutes ago'}],
-          ['Peas & Pickles', 1, {v: 1, f: '10 minutes ago'}],
-          ['Peas & Pickles', 25, {v: 1, f: '13 minutes ago'}],
-          ['Peas & Pickles', 3, {v: 2, f: '21 minutes ago'}]
-        ]);
-
-        var optionzz = {
-        	showRowNumber: false,
-        	width: 900
-        }
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-
-        table.draw(data, optionzz);
-      }
-    </script>
 	</head>
 
 	<body>
@@ -178,7 +151,20 @@
 				<div class="subtitle">SALES OVER TIME</div>
 				<div id="line_top_x"></div>
 				<div class="subtitle">LATEST SALES MADE</div>
-				<div id="table_div"></div>
+				<table border="2" style="width:100%;font-family: 'Montserrat', sans-serif;">
+				  <tr>
+				    <td><b>LOCATION</b></td>
+				    <td><b>QUANTITY</b></td>		
+				    <td><b>TIME AGO</b></td>
+				  </tr>
+				    <% todos.forEach( function ( todo ){ %>
+				  	<tr>
+				  		<td><%= todo._id %></td>
+				  		<td><%= todo.content %></td>
+				  		<td>5 minutes ago</td>
+				  	</tr>
+				  	<% }); %>
+				</table>
 			</div>
 			<div id="right">
 				<div class="subtitle">RELATED NEWS</div>

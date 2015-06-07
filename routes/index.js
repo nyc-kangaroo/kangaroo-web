@@ -219,20 +219,19 @@ exports.store = function ( req, res, next ) {
 };
 
 exports.checkout = function ( req, res, next ) {
-  res.type('text/plain');
-  console.log(req.body);
-  res.send(req.body);
+  // res.type('text/plain');
+  // console.log(req.body);
+  // res.send(req.body);
 
-  /*
+  
 
-    console.log(req.body.content);
+  console.log(req.body.content);
   new Todo({
-      user_id    : req.cookies.user_id,
-      content    : req.body.content,
+      user_id    : req.params.store,
+      content    : req.params.amt,
       updated_at : Date.now()
   }).save( function ( err, todo, count ){
     if( err ) return next( err );
-
-    res.redirect( '/' );
-  });*/
+  });
+  res.send("Got it.")
 };
