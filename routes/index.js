@@ -97,7 +97,9 @@ exports.index = function ( req, res, next ){
 };
 
 exports.create = function ( req, res, next ){
-  console.log(req.body.content);
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;  console.log(req.body.content);
+
   new Todo({
       user_id    : req.cookies.user_id,
       content    : req.body.content,
@@ -254,12 +256,28 @@ exports.checkout = function ( req, res, next ) {
   // res.type('text/plain');
   // console.log(req.body);
   // res.send(req.body);
+//   console.log(req.params.store + " " + req.params.amt);
+//   new Todo({
+//       user_id    : req.params.store,
+//       content    : req.params.amt,
+//       updated_at : Date.now()
+//   }).save( function ( err, todo, count ){
+//     if( err ) return next( err );
+//   });
+//   res.send("Got it.")
+// };
+  console.log(req.params.store + " " + req.params.amt);
   new Todo({
       user_id    : req.params.store,
       content    : req.params.amt,
       updated_at : Date.now()
   }).save( function ( err, todo, count ){
-    if( err ) return next( err );
+    if( err ) {
+      console.log("What");
+      res.send("nooo");
+      return next( err );
+    }
+
+    res.send("gg");
   });
-  res.send("Got it.")
 };
