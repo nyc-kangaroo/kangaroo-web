@@ -52,6 +52,7 @@ exports.index = function ( req, res, next ){
 };
 
 exports.create = function ( req, res, next ){
+  console.log(req.body.content);
   new Todo({
       user_id    : req.cookies.user_id,
       content    : req.body.content,
@@ -208,16 +209,7 @@ exports.store = function ( req, res, next ) {
 };
 
 exports.checkout = function ( req, res, next ) {
-  res.type('application/json');
-  // req.body.content;
-
-  new Todo({
-      user_id    : req.cookies.user_id,
-      content    : req.body.content,
-      updated_at : Date.now()
-  }).save( function ( err, todo, count ){
-    if( err ) return next( err );
-
-    res.redirect( '/' );
-  });
+  res.type('text/plain');
+  console.log(req.body);
+  res.send(req.body);
 };
