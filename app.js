@@ -46,7 +46,7 @@ app.get(  '/register',    routes.register);
 app.get(  '/login',       routes.login);
 app.get(  '/dash',        routes.dash);
 app.get(  '/store/:id',   routes.store);
-app.post( '/checkout/:store/:amt',routes.checkout);
+app.get( '/checkout/:store/:amt',routes.checkout);
 
 app.use( static( path.join( __dirname, 'public' )));
 
