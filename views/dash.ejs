@@ -11,8 +11,129 @@
 		<link rel='stylesheet' href='/stylesheets/dash.css'>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+	    google.load('visualization', '1.1', {packages: ['line', "geochart"]});
+	    google.setOnLoadCallback(drawChart);
 
+	    function drawChart() {
+
+	      var data = new google.visualization.DataTable();
+	      data.addColumn('string', 'Year');
+	      data.addColumn('number', 'Monster Energy Drinks');
+
+	      data.addRows([
+	        ['2002',  37.8],
+	        ['2003',  30.9],
+	        ['2004',  25.4],
+	        ['2005',  11.7],
+	        ['2006',  11.9],
+	        ['2007',   8.8],
+	        ['2008',   7.6],
+	        ['2009',  12.3],
+	        ['2010',  16.9],
+	        ['2011', 12.8],
+	        ['2012',  5.3],
+	        ['2013',  6.6],
+	        ['2014',  4.8],
+	        ['2015',  4.2]
+	      ]);
+
+	      var options = {
+	        chart: {
+	          subtitle: 'in millions of dollars (USD)',
+	        },
+	        colors:['#EA932F'],
+	        width: 800,
+	        height: 500,
+	        legend: {position: 'none'},
+	        axes: {
+	          x: {
+	            0: {side: 'bottom'}
+	          }
+	        }
+	      };
+
+	      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+	      chart.draw(data, options);
+	    }
+		</script>
+
+		<script type="text/javascript">
+      
+	      // This code generates a "Raw Searcher" to handle search queries. The Raw 
+	      // Searcher requires you to handle and draw the search results manually.
+	      google.load('search', '1');
+
+	      var newsSearch;
+
+	      function searchComplete() {
+
+	        // Check that we got results
+	        document.getElementById('content').innerHTML = '';
+	        if (newsSearch.results && newsSearch.results.length > 0) {
+	          for (var i = 0; i < newsSearch.results.length; i++) {
+
+	            // Create HTML elements for search results
+	            var p = document.createElement('p');
+	            var a = document.createElement('a');
+	            a.href="/news-search/v1/newsSearch.results[i].url;"
+	            a.innerHTML = newsSearch.results[i].title;
+
+	            // Append search results to the HTML nodes
+	            p.appendChild(a);
+	            document.getElementById('content').appendChild(p);
+	          }
+	        }
+	      }
+
+	      function onLoad() {
+
+	        // Create a News Search instance.
+	        newsSearch = new google.search.NewsSearch();
+	  
+	        // Set searchComplete as the callback function when a search is 
+	        // complete.  The newsSearch object will have results in it.
+	        newsSearch.setSearchCompleteCallback(this, searchComplete, null);
+
+	        // Specify search quer(ies)
+	        newsSearch.execute('Monster Energy Drink');
+
+	        // Include the required Google branding
+	        google.search.Search.getBranding('branding');
+	      }
+
+	      // Set a callback to call your code when the page loads
+	      google.setOnLoadCallback(onLoad);
+	    </script>
 		
+	    <script type="text/javascript">
+	      // google.load("visualization", "1", {packages:["geochart"]});
+	      google.setOnLoadCallback(drawRegionsMap);
+
+	      function drawRegionsMap() {
+
+	        var dataz = google.visualization.arrayToDataTable([
+	          ['Country', 'Popularity'],
+	          ['Germany', 200],
+	          ['United States', 300],
+	          ['Brazil', 400],
+	          ['Canada', 500],
+	          ['France', 600],
+	          ['RU', 700]
+	        ]);
+
+	        var optionsz = {
+	        	colors:['#EA932F'],
+	        	// height: 00
+	        };
+
+	        var chartz = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+	        chartz.draw(dataz, optionsz);
+	      }
+	    </script>
 	</head>
 
 	<body>
@@ -24,11 +145,22 @@
 			</div>
 		</header>
 
-		<div id="title"><div>DASHBOARD</div>
-			<!-- <div class="subtitles">SALES OVER TIME</div>
+		<div id="title">DASHBOARD</div>
+		<div id="wrapper">
+			<div id="left">
+				<div class="subtitle">SALES OVER TIME</div>
+				<div id="line_top_x"></div>
+				<div class="subtitle">RECENT SALES</div>
+			</div>
+			<div id="right">
+				<div class="subtitle">RELATED NEWS</div>
+				<div id="branding" style="float: left;display:none;"></div><br />
+			    <div id="content"></div>
+				<div class="subtitle">SALES OVER REGION</div>
+				<div id="regions_div" style="width: 900px; height: 500px;"></div>
+			</div>
+			<!--
 			
-			<div class="subtitles2">RELATED NEWS</div>
-			<div class="subtitles">RECENT SALES</div>
 			<div class="subtitles2">SALES OVER REGION</div> -->
 		</div>
 	</body>

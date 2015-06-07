@@ -72,6 +72,11 @@ body {
 	z-index: 1;
 	position: relative;
 }
+a:link {
+	font-family: 'Montserrat', sans-serif;
+	color: #EA932F;
+	text-decoration: none;
+}
 header {
 	background-color: #26292C;
 	color: #ffffff;
@@ -107,13 +112,31 @@ header {
 	float: left;
 }
 
-.subtitles, .subtitles2 {
-	font-weight: normal;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 5vh;
-	float: left;
+#wrapper {
+	margin: 0 auto;
+	width: 100%;
+	overflow: hidden;
 }
 
-.subtitles {
-	width: 50vw;
-} 
+.subtitle {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+	font-size: 4vh;
+	color: #303235;
+}
+
+#left {
+	width: 450px;
+	float: left;
+	padding-top: 3vh;
+	padding-left: 6vw;
+	padding-bottom: 3vh;
+}
+
+#right {
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	float: right;
+	width: 850px;
+	overflow: hidden;
+}
