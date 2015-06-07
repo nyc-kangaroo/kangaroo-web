@@ -6,7 +6,7 @@ var Todo     = mongoose.model( 'Todo' );
 var peas_and_pickles = {
   name : "Peas & Pickles",
   imageUrl : "http://45.33.83.229:3001/images/whole_foods.jpg",
-  products : [
+  products : {
     "0111152643059": {
       name: "Daifuku – Red Bean Cake",
       imageUrl: "http://foods.dailyburn.com.s3.amazonaws.com/pictures/130550/large_thumb.jpg",
@@ -20,9 +20,9 @@ var peas_and_pickles = {
     "0075720334117": {
       name: "Poland Spring Water 3 Ltr",
       imageUrl: "http://ecx.images-amazon.com/images/I/61cUAiC1AzL._SX522AA522_PIbundle-6,TopRight,0,0_AA522_SH20_.jpg",
-      p
+      price: 2.78
     }
-  ],
+  },
   promoted : [
     0038000635304,
     0075720334117
@@ -31,14 +31,14 @@ var peas_and_pickles = {
 var foragers_market = {
   name : "Foragers Market",
   imageUrl : "http://45.33.83.229:3001/images/whole_foods.jpg",
-  products : [
+  products : {
     {
       UPC: "1234567890",
       name: "Number",
       imageUrl: "http://45.33.83.229:3001/images/whole_foods.jpg",
       price: 4.5
     }
-  ],
+  },
   promoted : [
     1234567890
   ]
