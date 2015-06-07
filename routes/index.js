@@ -15,7 +15,7 @@ var peas_and_pickles = {
     }
   ],
   promoted : [
-    1234567890, 0987654321, 321312231231
+    1234567890
   ]
 };
 var foragers_market = {
@@ -30,7 +30,7 @@ var foragers_market = {
     }
   ],
   promoted : [
-    1234567890, 0987654321
+    1234567890
   ]
 };
 // DASHBOARD SYSTEM
