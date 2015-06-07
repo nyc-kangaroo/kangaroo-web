@@ -13,6 +13,9 @@ var peas_and_pickles = {
       imageUrl: "http://45.33.83.229:3001/images/whole_foods.jpg",
       price: "4.5"
     }
+  ],
+  promoted : [
+    "1234567890", "0987654321", "321312231231"
   ]
 };
 var foragers_market = {
@@ -25,8 +28,11 @@ var foragers_market = {
       imageUrl: "http://45.33.83.229:3001/images/whole_foods.jpg",
       price: "4.5"
     }
+  ],
+  promoted : [
+    "1234567890", "0987654321"
   ]
-}
+};
 // DASHBOARD SYSTEM
 exports.index = function ( req, res, next ){
   var user_id = req.cookies ?
