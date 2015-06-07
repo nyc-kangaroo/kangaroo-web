@@ -35,7 +35,8 @@ app.use( bodyParser.urlencoded({ extended : true }));
 
 // Routes
 app.use( routes.current_user );
-app.get(  '/',            routes.index );
+app.get(  '/',            routes.welcome );
+app.get(  '/index',       routes.index );
 app.post( '/create',      routes.create );
 app.get(  '/destroy/:id', routes.destroy );
 app.get(  '/edit/:id',    routes.edit );

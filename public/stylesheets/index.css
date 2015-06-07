@@ -1,0 +1,85 @@
+@font-face {
+	font-family: shabby;
+	src: url(http://lineless.github.io/res/fonts/Anothershabby_trial.ttf);
+}
+
+@font-face {
+	font-family: champagne;
+	src: url(http://lineless.github.io/res/fonts/Champagne&Limousines.ttf);
+}
+
+html body{
+	background: url(https://download.unsplash.com/uploads/141143339879512fe9b0d/f72e2c85) no-repeat center center fixed;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	-ms-background-size: 100% auto;
+	-o-background-size: 100% auto;
+	background-size: 100% auto;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+h6 {
+	margin-top: 1em;
+	font-size: 250px;
+	font-family: shabby;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 2px 2px #000000;
+	font-weight:100;
+}
+
+.image { 
+		position: relative; 
+		width: 100%; /* for IE 6 */
+}
+
+h2 { 
+		position: absolute; 
+		top: 200px; 
+		left: 0; 
+		width: 50%;
+		font-family: shabby;
+		color: #FFFFFF;
+		text-shadow: 2px 2px #000000;
+		font-weight:100;
+}
+
+p, ul, ol{
+	font-family: champagne;
+	font-size:130%;
+}
+
+h1 {
+	font-family: champagne;
+}
+
+.extendfull, .extendleft, .extendright
+{
+	position: relative;
+	display: inline;
+	float: left;
+	width: 100%;
+	margin-left: -3000px;
+	margin-right; -3000px;
+}
+
+.extendfull, .extendleft
+{
+	margin-left: -3000px;
+	padding-left: 3000px;
+}
+
+.extendfull, .extendright
+{
+	margin-right: -3000px;
+	padding-right: 3000px;
+}
+
+.descript
+{
+	padding-top: 3em;
+	padding-bottom: 3em;
+	margin-left: 20%;
+	margin-right: 20%;
+}

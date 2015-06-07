@@ -140,10 +140,7 @@ exports.welcome = function ( req, res, next ){
     exec( function ( err, todos ){
       if( err ) return next( err );
 
-      res.render( 'welcome', {
-          title : 'Kangaroo | Welcome',
-          todos : todos
-      });
+      res.render( 'welcome');
     });
 };
 
